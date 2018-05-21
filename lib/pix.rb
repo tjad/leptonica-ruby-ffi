@@ -68,6 +68,10 @@ module Leptonica
             end
         end
 
+        def self.readMem(bytes)
+            LeptonicaFFI::pixReadMem(bytes, bytes.length)
+        end
+
         def self.create(w, h, d, xres=72, yres=72)
             pointer = LeptonicaFFI.pixCreate(w, h, d)
             LeptonicaFFI.pixSetXRes(pointer, xres)
